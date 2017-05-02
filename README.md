@@ -1,6 +1,4 @@
 # Coursera---Getting-and-cleaning-data
-Repository for the coursera final project in "getting and cleaning data"
-
 This is the solution for the final project of the coursera.org course "Getting and cleaning data", of the data science specialization. 
 
 The R script "run_analysis.R", that has to be placed in the same folder containing the input data set, available from
