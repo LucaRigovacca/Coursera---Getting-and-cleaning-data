@@ -61,6 +61,12 @@ df_main_merged <-  df_main_merged %>%
 # to the features
 
 df_main_merged <- as.data.frame(lapply(df_main_merged, as.numeric))
+
+df_selected_features$name <- gsub("^t","Time",df_selected_features$name)
+df_selected_features$name <- gsub("^f","Freq",df_selected_features$name)
+df_selected_features$name <- gsub("-mean\\(\\)[-]?","Mean",df_selected_features$name)
+df_selected_features$name <- gsub("-std\\(\\)[-]?","Std",df_selected_features$name)
+
 names(df_main_merged) <- df_selected_features$name
 
 
@@ -83,16 +89,16 @@ df_merged <-  df_merged %>%
 
 df_merged <- as.tbl(df_merged)
 df_tidy <-  df_merged %>%
-            gather(key = measurement, value = value, 3:68) %>%
-            arrange(subject, activity)
+  gather(key = measurement, value = value, 3:68) %>%
+  arrange(subject, activity)
 
 
 # LAST REQUIRED TIDY DATA SET 
 
 # We group the data by activity and subject, and then we take the average over all values
 df_average <- df_tidy %>%
-              group_by(subject, activity, measurement) %>%
-              summarize(meanvalue = mean(value))
+  group_by(subject, activity, measurement) %>%
+  summarize(meanvalue = mean(value))
 
 
 # Final data set is saved to a .csv file
