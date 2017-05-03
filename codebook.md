@@ -57,5 +57,5 @@ These signals were used to estimate variables of the feature vector for each pat
 - fBodyGyroJerkMag
 
 For each of these variables, the original data provided multiple functions, from which our script retains only the following two, that compose the "measurement" column:
-- mean(): Mean value,
-- std(): Standard deviation.
+- Mean: Mean value,
+- Std: Standard deviation.
